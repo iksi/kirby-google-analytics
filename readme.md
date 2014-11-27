@@ -16,6 +16,12 @@ Put the plugin in `/site/plugins` and add a Google Analytics id to your config:
 c::set('analytics', 'analytics-id');
 ```
 
+Then you can simply call it from a template or snippet:
+
+```
+<?php echo analytics() ?>
+```
+
 ## Author
 Iksi
 <http://www.iksi.cc>
