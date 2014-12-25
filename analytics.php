@@ -3,16 +3,22 @@
  * Analytics plugin for Kirby
  *
  * @author Iksi <info@iksi.cc>
- * @version 1.0.0
+ * @version 1.0.5
  */
 function analytics()
 {
-    $id = kirby()->option('analytics', FALSE);
+    // Get it from config
+    // $analytics = kirby()->option('analytics', FALSE);
+    
+    // Get it from a site field
+    $analytics = kirby()->site()->analytics();
+    
+    $data = array();
 
-    if (in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')) || empty($id))
+    if ( ! $analytics->empty() && ! in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')))
     {
-        return FALSE;
+        $data['analytics'] = $analytics;
     }
 
-    return tpl::load(__DIR__ . DS . 'template.php', array('id' => $id));
+    return tpl::load(__DIR__ . DS . 'template.php', $data);
 }
