@@ -8,17 +8,12 @@
 function analytics()
 {
     // Get it from config
-    // $analytics = c::get('analytics', FALSE);
-    
-    // Get it from a site field
-    $analytics = site()->analytics();
+    $analytics_id = c::get('google.analytics_id', FALSE);
 
-    if ($analytics->empty() || in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')))
+    if ( ! $analytics_id || in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')))
     {
         return FALSE;
     }
 
-    return tpl::load(__DIR__ . DS . 'template.php', array(
-        'analytics' => $analytics->html()
-    ));
+    return tpl::load(__DIR__ . DS . 'template.php', compact('analytics_id'));
 }
