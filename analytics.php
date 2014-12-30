@@ -11,7 +11,7 @@ function analytics()
     // $analytics = kirby()->option('analytics', FALSE);
     
     // Get it from a site field
-    $analytics = kirby()->site()->analytics();
+    $analytics = site()->analytics();
     
     $data = array();
 
