@@ -13,7 +13,7 @@ I have often forgotten to (re)activate the Google Analytics snippet after pushin
 Put the plugin in `/site/plugins` and add a Google Analytics id to your config:
 
 ```
-c::set('analytics', 'analytics-id');
+c::set('google.analytics_id', '<analytics_id>');
 ```
 
 Then you can simply call it from a template or snippet:
