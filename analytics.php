@@ -8,7 +8,7 @@
 function analytics()
 {
     // Get it from config
-    // $analytics = kirby()->option('analytics', FALSE);
+    // $analytics = c::get('analytics', FALSE);
     
     // Get it from a site field
     $analytics = site()->analytics();
