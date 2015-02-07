@@ -6,7 +6,7 @@ Adds a Google Analytics code automatically as soon as the site is not running on
 
 ## Why use it?
 
-I have often forgotten to (re)activate the Google Analytics snippet after pushing to the development server.
+I maded it because I often forgot to uncomment the Google Analytics code after uploading changes to the live site.
 
 ## How to use it?
 
