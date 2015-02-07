@@ -10,7 +10,7 @@ I maded it because I often forgot to uncomment the Google Analytics code after u
 
 ## How to use it?
 
-Put the plugin in `/site/plugins` and add a Google Analytics id to your config:
+Put the `analytics` folder in `/site/plugins` and add a Google Analytics id to your config.
 
 ```PHP
 c::set('google.analytics_id', '<analytics_id>');
