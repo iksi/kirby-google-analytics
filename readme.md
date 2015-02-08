@@ -13,7 +13,7 @@ I maded it because I often forgot to uncomment the Google Analytics code after u
 Put the `analytics` folder in `/site/plugins` and add a Google Analytics id to your config. The analytics id is a string like `UA-000000-01`.
 
 ```PHP
-c::set('google.analytics_id', '<analytics_id>');
+c::set('google.analytics_id', 'UA-000000-01');
 ```
 
 Then you can simply call it from a template or snippet:
