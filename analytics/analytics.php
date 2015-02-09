@@ -7,10 +7,13 @@
  */
 function analytics()
 {
-    // Get the analytics_id from config
-    $analytics_id = c::get('google.analytics_id', false);
+    // Get the id either from config or site variables
+    $analytics_id = c::get('google.analytics_id', site()->analytics_id());
+    
+    // Are we on localhost
+    $localhost = in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'));
 
-    if ( ! $analytics_id || in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))) {
+    if ( ! strlen($analytics_id) || $localhost) {
         // No id given or on localhost
         return false;
     }
