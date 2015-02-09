@@ -16,6 +16,8 @@ Put the `analytics` folder in `/site/plugins` and add a Google Analytics id to y
 c::set('google.analytics_id', 'UA-000000-01');
 ```
 
+Instead of setting the `analytics_id` in your `config.php` file you can also add it as site variable. The plugin will check for an id in `config.php` and if it can’t find one it will look for a site variable.
+
 Then you can simply call it from a template or snippet:
 
 ```PHP
