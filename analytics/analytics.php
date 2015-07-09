@@ -5,8 +5,8 @@
  * @author Iksi <info@iksi.cc>
  * @version 1.1
  */
-function analytics()
-{
+function analytics() {
+
     // Get the id either from config or site variables
     $analytics_id = c::get('google.analytics_id', site()->analytics_id());
     
