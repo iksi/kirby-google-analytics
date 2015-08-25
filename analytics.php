@@ -1,23 +1,29 @@
 <?php
+
 /**
  * Analytics plugin for Kirby
  *
  * @author Iksi <info@iksi.cc>
- * @version 1.1
+ * @version 1.2
  */
+
 function analytics() {
 
-    // Get the id either from config or site variables
-    $analytics_id = c::get('google.analytics_id', site()->analytics_id());
-    
-    // Are we on localhost
-    $localhost = in_array($_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'));
+    $id = c::get('analytics.id');
+    $anonymize = c::get('analytics.anonymize', false);
 
-    if ( ! strlen($analytics_id) || $localhost) {
-        // No id given or on localhost
-        return false;
+    if (is_bool($anonymize) === false) {
+        $anonymize = false;
+    }
+    
+    $ipAddress = $_SERVER['REMOTE_ADDR'];
+    $localhost = ($ipAddress === '127.0.0.1' || $ipAddress === '::1');
+
+    if ($id === null || $localhost === true) {
+        return;
     }
 
-    // Return the template
-    return tpl::load(__DIR__ . DS . 'template.php', compact('analytics_id'));
+    $templateData = compact('id', 'anonymize');
+
+    return tpl::load(__DIR__ . DS . 'template.php', $templateData);
 }
