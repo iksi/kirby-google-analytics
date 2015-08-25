@@ -7,7 +7,11 @@
  * @version 1.2
  */
 
-function analytics() {
+function analytics()
+{
+    if (c::get('analytics', false) === false) {
+        return;
+    }
 
     $id = c::get('analytics.id');
     $anonymize = c::get('analytics.anonymize', false);
