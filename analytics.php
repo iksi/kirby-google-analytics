@@ -7,25 +7,21 @@
  * @version 1.2
  */
 
-function analytics()
-{
-    if (c::get('analytics', false) === false) {
-        return;
-    }
+function analytics() {
+
+    if (c::get('analytics', false) === false) return;
 
     $id = c::get('analytics.id');
-    $anonymize = c::get('analytics.anonymize', false);
+    $anonymize = c::get('analytics.anonymize');
 
     if (is_bool($anonymize) === false) {
         $anonymize = false;
     }
     
-    $ipAddress = $_SERVER['REMOTE_ADDR'];
-    $localhost = ($ipAddress === '127.0.0.1' || $ipAddress === '::1');
+    $ipAddress = r::ip();
+    $localhost = in_array($ipAddress, array('127.0.0.1', '::1'));
 
-    if ($id === null || $localhost === true) {
-        return;
-    }
+    if ($id === null || $localhost === true) return;
 
     $templateData = compact('id', 'anonymize');
 
