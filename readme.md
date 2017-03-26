@@ -11,7 +11,7 @@ I maded it because I often forgot to uncomment the Google Analytics code after u
 ## How to use it?
 
 Add it as a submodule using git:  
-`git submodule add https://github.com/iksi/KirbyAnalytics.git site/plugins/analytics`
+`git submodule add https://github.com/iksi/kirby-analytics.git site/plugins/analytics`
 
 Or put the contents of the repository in a folder called `analytics` in `/site/plugins`. Next add a Google Analytics id to your config. The analytics id is a string like `UA-000000-01`. You can also set anonymize to true to enable IP anonymization.
 
