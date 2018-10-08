@@ -1,31 +1,38 @@
-# Analytics plugin for Kirby
+# Google Analytics plugin for Kirby 2
 
 ## What is it?
 
-Adds a Google Analytics code automatically as soon as the site is not running on localhost.
+Runs Google Analytics as soon as the site is not running on localhost and the Do Not Track header is not set by the browser.
 
 ## Why use it?
 
-I maded it because I often forgot to uncomment the Google Analytics code after uploading changes to the live site.
+I maded it because I often forgot to (re)activate the Google Analytics snippet after a site went live.
 
 ## How to use it?
 
-Add it as a submodule using git:  
-`git submodule add https://github.com/iksi/kirby-analytics.git site/plugins/analytics`
+Add it as a submodule using git: `git submodule add https://github.com/iksi/kirby-google-analytics.git site/plugins/kirby-google-analytics` or put the contents of the repository in a folder called `analytics` in `/site/plugins`.
 
-Or put the contents of the repository in a folder called `analytics` in `/site/plugins`. Next add a Google Analytics id to your config. The analytics id is a string like `UA-000000-01`. You can also set anonymize to true to enable IP anonymization.
+Next add a Google Analytics tracking ID to your configuration. The tracking ID is a string like `UA-000000-01`. You can also set anonymize to false to disable IP anonymization (the default is true).
 
 ```PHP
-c::set('analytics', true);
-c::set('analytics.id', 'UA-000000-01');
-c::set('analytics.anonymize', true);
+c::set('plugin.googleAnalytics.trackingId', 'UA-000000-01');
+c::set('plugin.googleAnalytics.anonymizeIp', false);
 ```
 
-You can simply call it from a template or snippet:
+Instead of a string you can also provide a callback function for the tracking ID:
 
 ```PHP
-<?php echo analytics() ?>
+c::set('plugin.googleAnalytics.trackingId', function() {
+  return site()->googleAnalyticsTrackingId()->value();
+});
+```
+
+You can add it to your website as a snippet:
+
+```PHP
+<?php snippet('google-analytics') ?>
 ```
 
 ## Author
-Iksi, <http://www.iksi.cc>
+
+Jurriaan Topper, <jurriaan@iksi.eu> (http://www.iksi.eu/)

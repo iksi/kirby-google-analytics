@@ -1,0 +1,8 @@
+{
+  "name": "kirby-google-analytics",
+  "description": "Google Analytics plugin for Kirby 2",
+  "author": "Jurriaan Topper <jurriaan@iksi.eu>",
+  "version": "2.0.0",
+  "type": "kirby-plugin",
+  "license": "MIT"
+}
