@@ -8,8 +8,11 @@
  * @license MIT
  */
 
-load([
-  'iksi\\googleanalytics' => __DIR__ . DS . 'src' . DS . 'google-analytics.php'
-]);
 
-kirby()->set('snippet', 'google-analytics', __DIR__ . DS . 'snippets'. DS . 'google-analytics.php');
+if (c::get('plugin.googleAnalytics', false) === true) {
+  load([
+    'iksi\\googleanalytics' => __DIR__ . '/src/google-analytics.php'
+  ]);
+
+  kirby()->set('snippet', 'google-analytics', __DIR__ . '/snippets/google-analytics.php');
+}
