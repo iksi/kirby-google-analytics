@@ -15,6 +15,7 @@ Add it as a submodule using git: `git submodule add https://github.com/iksi/kirb
 Next add a Google Analytics tracking ID to your configuration. The tracking ID is a string like `UA-000000-01`. You can also set anonymize to false to disable IP anonymization (the default is true).
 
 ```PHP
+c::set('plugin.googleAnalytics', true);
 c::set('plugin.googleAnalytics.trackingId', 'UA-000000-01');
 c::set('plugin.googleAnalytics.anonymizeIp', false);
 ```
